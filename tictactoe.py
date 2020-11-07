@@ -25,6 +25,8 @@ class TicTacToe:
 
     def user_move(self):
         move = int(input('Выберите клетку: '))
+        if move <= 0 or move > board_size**2:
+            move = int(input('Введите число, не выходящее за пределы!: '))
         while self.size_list[move - 1] in list('XO'):
             move = int(input('Клетка занята! Введите свободную клетку: '))
         self.size_list[move - 1] = self.user_sign
